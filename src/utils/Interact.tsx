@@ -2,7 +2,7 @@ import ABI from "../ABI.json";
 import Web3 from "web3";
 const { ethereum }: any = window;
 const web3 = new Web3(ethereum);
-const contractAddress = "0xEba51A0091A8FE7ba3400b65f3B12Dba8b12d2f5";
+const contractAddress = "0x5ECdbfD7b8E2c8D669967ED4eD1B390474c17f6F";
 const ABI_VALUE: any = ABI;
 const contract = new web3.eth.Contract(ABI_VALUE, contractAddress);
 
@@ -37,7 +37,7 @@ export const connectWallet = async () => {
 
 const checkChainID = async () => {
   const chainid = await web3.eth.net.getId();
-  if (chainid === 4) {
+  if (chainid === 5) {
     return true;
   } else {
     return false;
@@ -59,7 +59,7 @@ export const getCurrentWalletConnected = async () => {
         return obj;
       } else {
         const obj = {
-          res: "Please Connect to Rinkeby",
+          res: "Please Connect to Goerli",
           status: false,
         };
         return obj;
