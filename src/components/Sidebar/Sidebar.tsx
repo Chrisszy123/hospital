@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { __NavType } from "../../types/Nav";
 import { WalletType } from "../../types/Wallet";
-// import { ContextType } from "../../types/Context";
 import SidebarItem from "../SidebarItem/SidebarItem";
 import { connectWallet, getCurrentWalletConnected } from "../../utils/Interact";
 import { WalletContext } from "../../context/WalletContext";

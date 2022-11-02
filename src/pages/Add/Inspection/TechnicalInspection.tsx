@@ -5,6 +5,7 @@ import Loader from "../../../components/Base/Loader";
 import { DataContext } from "../../../context/DataContext";
 import Validate from "../../../utils/Validate";
 import { addInspection } from "../../../utils/Interact";
+import Warning from "../../../components/Base/Warning";
 
 const TechnicalInspection = () => {
   const [car, setCar] = useState("");
@@ -36,6 +37,7 @@ const TechnicalInspection = () => {
             Options={cars}
             action={setCar}
           />
+          <Warning text="Only Service Workers Owner can Add Inspection" />
           <Loader status={loader} />
           <Button
             text="Add Technincal Inspection"

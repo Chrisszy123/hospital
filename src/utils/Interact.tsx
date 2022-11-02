@@ -21,7 +21,7 @@ export const connectWallet = async () => {
         return obj;
       } else {
         const obj = {
-          res: "Please Connect to Rinkeby",
+          res: "Please Connect to Georli",
           status: false,
         };
         return obj;

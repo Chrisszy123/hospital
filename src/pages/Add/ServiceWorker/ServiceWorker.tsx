@@ -4,6 +4,7 @@ import Button from "../../../components/Base/Button";
 import Loader from "../../../components/Base/Loader";
 import Validate from "../../../utils/Validate";
 import { addServiceWorker } from "../../../utils/Interact";
+import Warning from "../../../components/Base/Warning";
 
 const AddServiceWorker = () => {
   const [worker, setWorker] = useState("");
@@ -35,6 +36,7 @@ const AddServiceWorker = () => {
             type="text"
             action={setWorker}
           />
+          <Warning text="Only Smart Contract Owner can Add Worker" />
           <Loader status={loader} />
           <Button
             text="Add Service Worker"

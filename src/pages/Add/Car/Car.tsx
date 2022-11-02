@@ -4,6 +4,7 @@ import Loader from "../../../components/Base/Loader";
 import Button from "../../../components/Base/Button";
 import Validate from "../../../utils/Validate";
 import { addVehicle } from "../../../utils/Interact";
+import Warning from "../../../components/Base/Warning";
 
 const Car = () => {
   const [name, setName] = useState("");
@@ -47,6 +48,8 @@ const Car = () => {
             type="text"
             action={setColor}
           />
+          <Warning text="Only Service Workers Owner can Add Car" />
+
           <Loader status={loader} />
 
           <Button

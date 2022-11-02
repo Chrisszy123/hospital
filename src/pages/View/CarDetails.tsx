@@ -11,6 +11,7 @@ const CarDetails = () => {
   useEffect(() => {
     const getDetails = async () => {
       const response = await getCarDetails(Id);
+      console.log(response);
       if (response?.success === true) {
         setCarDetails(response?.response);
       }

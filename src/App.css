@@ -381,6 +381,11 @@ main {
   transition: all 0.5s;
 }
 
+.warning {
+  font-size: 0.8rem;
+  color: rgb(78, 78, 11);
+}
+
 .sidebar__title {
   display: flex;
   justify-content: space-between;
