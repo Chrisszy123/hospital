@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import TBody from "../../components/Base/TBody";
-import { getCarDetails } from "../../utils/Interact";
+import { getPatient } from "../../utils/Interact";
 
 const CarDetails = () => {
-  const [car, setCarDetails] = useState([]);
+  const [patient, setPatientDetails] = useState([]);
 
   const Id: string | any = useParams().id;
 
   useEffect(() => {
     const getDetails = async () => {
-      const response = await getCarDetails(Id);
+      const response = await getPatient(Id);
       console.log(response);
       if (response?.success === true) {
-        setCarDetails(response?.response);
+        setPatientDetails(response?.response);
       }
     };
     getDetails();
@@ -26,8 +26,8 @@ const CarDetails = () => {
         <div className="section__card">
           <div className="section__title">
             <div>
-              <h1>View Vehicle Details</h1>
-              <p>The Table Below Show the Details of all Vehicle</p>
+              <h1>View Patient Details</h1>
+              <p>The Table Below Show the Details of all Patient</p>
             </div>
           </div>
           <div>
@@ -35,12 +35,12 @@ const CarDetails = () => {
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>VIN</th>
+                  <th>AGE</th>
                   <th>Name</th>
-                  <th>Color</th>
+                  <th>Date of Admission</th>
                 </tr>
               </thead>
-              {car.length !== 0 && <TBody item={car} />}
+              {patient.length !== 0 && <TBody item={patient} />}
             </table>
           </div>
         </div>

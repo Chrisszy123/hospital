@@ -4,3 +4,12 @@ export type WalletType =
       status?: boolean;
     }
   | undefined;
+
+export type Wallet = {
+    name: string,
+    link: string
+}
+
+export interface _Wallet {
+  [key: string] : Wallet[] | [] | Array<Wallet[]> | any
+}

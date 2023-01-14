@@ -26,21 +26,21 @@ function Dashboard() {
       )}
       <div className="main__cards">
         <Card
-          icon="hard-hat"
+          icon="" 
           figure={workersLength}
-          title="Number of Workers"
+          title="Number of Nurses"
           color="text-lightblue"
         />
         <Card
-          icon="car"
+          icon=""
           figure={carsLength}
-          title="Number of Cars"
+          title="Number of Patients"
           color="text-red"
         />
         <Card
-          icon="wrench"
+          icon=""
           figure={inspectionsLength}
-          title="Number of Inspection"
+          title="Number of Workers"
           color="text-green"
         />
       </div>

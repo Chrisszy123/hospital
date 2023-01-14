@@ -21,6 +21,7 @@
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -30,8 +31,10 @@
 }
 
 body {
-  box-sizing: border-box;
   font-family: "Lato", sans-serif;
+}
+a{
+  text-decoration: none;
 }
 
 .text-primary-p {
@@ -368,6 +371,63 @@ main {
   border-radius: 5px;
   font-size: 14px;
 }
+/* Login Component */
+.login_container{
+  background-color: rgb(43, 33, 66);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.login_wrapper{
+  background: rgba(59, 44, 92, 0.288);
+  padding: 2rem;
+  height: fit-content;
+  width: 40%;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.082);
+}
+.login_{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+
+}
+.login_wrap{
+  height: 100%;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.login_title{
+  color: rgb(206, 197, 197);
+}
+.wallet_wrapper{
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.wallet{
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 0.6rem 1rem 0.6rem;
+  background: rgba(201, 196, 196, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.wallet > h4{
+  color: rgb(206, 197, 197);
+  font-weight: 600;
+}
+.wallet:hover{
+  background: rgba(201, 196, 196, 0.5);
+}
 
 /*  SIDEBAR STARTS HERE  */
 
@@ -505,7 +565,7 @@ select {
   margin-top: 10px;
   border-radius: 10px;
   border: 1px solid #eee;
-  padding: 10px;
+  padding: 1.5rem;
   width: 90%;
 }
 

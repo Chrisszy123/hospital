@@ -4,7 +4,7 @@ import Button from "../../../components/Base/Button";
 import Loader from "../../../components/Base/Loader";
 import { DataContext } from "../../../context/DataContext";
 import Validate from "../../../utils/Validate";
-import { addInspection } from "../../../utils/Interact";
+// mport { addInspection } from "../../../utils/Interact";
 import Warning from "../../../components/Base/Warning";
 
 const TechnicalInspection = () => {
@@ -14,12 +14,12 @@ const TechnicalInspection = () => {
 
   const addInspections = async () => {
     setLoader(true);
-    if (Validate(car).empty()) {
-      const response = await addInspection(car);
-      if (response?.success === true) {
-        window.location.reload();
-      }
-    }
+    // if (Validate(car).empty()) {
+    //   const response = await addInspection(car);
+    //   if (response?.success === true) {
+    //     window.location.reload();
+    //   }
+    // }
   };
 
   return (
