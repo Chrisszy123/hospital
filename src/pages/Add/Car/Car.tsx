@@ -10,7 +10,7 @@ const Car = () => {
 	const [name, setName] = useState("");
 	const [addr, setAddress] = useState("");
 	const [hid, setHid] = useState(0);
-	const [pid, setPid] = useState(0);
+	// const [pid, setPid] = useState(0);
 	const [age, setAge] = useState(0);
 	const [date, setDate] = useState("");
 	const [history, setHistory] = useState("");
@@ -19,21 +19,23 @@ const Car = () => {
 
 	const addCar = async () => {
 		setLoader(true);
-		if (Validate(name).empty() && Validate(history).empty()) {
-			const response = await addPatient(
-				pid,
-				hid,
-				addr,
-				name,
-				age,
-				history,
-				prescription,
-				date
-			);
-			if (response?.success === true) {
-				window.location.reload();
+		try {
+			if (Validate(name).empty() && Validate(history).empty()) {
+				const response = await addPatient(
+					hid,
+					addr,
+					name,
+					age,
+					history,
+					prescription,
+					date
+				);
+				if (response?.success === true) {
+					window.location.reload();
+				}
 			}
-			// setLoader(false);
+		} catch (err) {
+			console.log(err);
 		}
 	};
 
@@ -52,11 +54,6 @@ const Car = () => {
 					</div>
 				</div>
 				<div className="form">
-					<Input
-						placeholder="Enter Patient Number"
-						type="number"
-						action={setPid}
-					/>
 					<Input
 						placeholder="Enter Patient Hospital Number"
 						type="number"

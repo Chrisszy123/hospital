@@ -13,7 +13,9 @@ import { WalletContext } from "../../context/WalletContext";
 function Sidebar() {
 	const [item, setItem] = useState<__NavType>([]);
 	const [doctor, setDoctor] = useState("");
+	const [nurzes, setNurses] = useState([]);
 	const [nurseitem, setNurseItem] = useState<__NavType>([]);
+	const [patientItem, setPatientItem] = useState<__NavType>([]);
 	const { walletAddress, setWallet, setIsActive, isActive }: any =
 		useContext(WalletContext);
 	const [connectionSatatus, setConnectionStatus] = useState(true);
@@ -26,6 +28,14 @@ function Sidebar() {
 			setDoctor(doc);
 		}
 	};
+	// const getAllNurs = async () => {
+	// 	const allNurses = await getAllNurses()
+	// 	if (allNurses?.success === true) {
+	// 		const nurs = allNurses?.response;
+	// 		console.log(nurs)
+	// 		setNurses(nurs);
+	// 	}
+	// }
 	const wal = walletAddress.toLowerCase();
 
 	const nurse1 = "0xc50fA013Ac854fE6cB297Fff0917361722A90f1c";
@@ -53,12 +63,12 @@ function Sidebar() {
 		const addSection: __NavType = {
 			"ADD SECTIONS": [
 				{
-					route: "/add-worker",
+					route: "/add-nurse",
 					icon: "hard-hat",
 					text: "Add New Nurse",
 				},
 				{
-					route: "/add-car",
+					route: "/add-patient",
 					icon: "car",
 					text: "Add New Patient",
 				},
@@ -73,12 +83,12 @@ function Sidebar() {
 		const viewSection: __NavType = {
 			"VIEW SECTIONS": [
 				{
-					route: "/view-car",
+					route: "/view-nurse",
 					icon: "car",
 					text: "View Nurse",
 				},
 				{
-					route: "/view-inspection",
+					route: "/view-patient",
 					icon: "wrench",
 					text: "View Patients",
 				},
@@ -96,20 +106,28 @@ function Sidebar() {
 		];
 		const nurse: __NavType = [
 			{
-				route: "/add-car",
+				route: "/profile",
 				icon: "car",
 				text: "My Profile",
 			},
 			{
 				text: "Add Patient",
-				route: "/add-car",
+				route: "/add-patient",
 				icon: "wrench",
 			},
 			{
 				icon: "wrench",
 				text: "View Patients",
-				route: "/view-car",
+				route: "/view-patient",
 			},
+		];
+		const patient: __NavType = [
+			{
+				route: "/user-profile",
+				icon: "car",
+				text: "My Profile",
+			},
+			
 		];
 		const getWallet = async () => {
 			const response: WalletType = await getCurrentWalletConnected();
@@ -121,6 +139,7 @@ function Sidebar() {
 			}
 		};
 		setNurseItem(nurse);
+		setPatientItem(patient)
 		getDoc();
 		getWallet();
 		setItem(List);
@@ -193,6 +212,26 @@ function Sidebar() {
 				) : (
 					"Youre not a nurse"
 				)}
+
+				{!nurses.includes(wal) && wal !== doctor ? (
+					<>
+					<SidebarItem
+							class="sidebar__link active_menu_link"
+							icon="home"
+							text="Dashboard"
+							route="/dashboard"
+						/>
+					{patientItem.map((p: __NavType, k: any) => (
+						<SidebarItem
+						class="sidebar__link"
+						icon={p.icon}
+						text={p.text}
+						route={p.route}
+						key={k}
+					/>
+					))}
+					</>
+				) : ""}
 
 				{/* {connectionSatatus === false ? (
 					<div

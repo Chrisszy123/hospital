@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import Select from "../../../components/Base/Select";
 import Button from "../../../components/Base/Button";
 import Loader from "../../../components/Base/Loader";
@@ -6,48 +6,72 @@ import { DataContext } from "../../../context/DataContext";
 import Validate from "../../../utils/Validate";
 // mport { addInspection } from "../../../utils/Interact";
 import Warning from "../../../components/Base/Warning";
+import { WalletContext } from "../../../context/WalletContext";
 
 const TechnicalInspection = () => {
-  const [car, setCar] = useState("");
-  const { cars }: any = useContext(DataContext);
-  const [loader, setLoader] = useState(false);
+	const [car, setCar] = useState("");
+	const [nurz, setNurz] = useState([]);
+	const { cars, nurses }: any = useContext(DataContext);
+	const { walletAddress }: any = useContext(WalletContext);
+	const [loader, setLoader] = useState(false);
 
-  const addInspections = async () => {
-    setLoader(true);
-    // if (Validate(car).empty()) {
-    //   const response = await addInspection(car);
-    //   if (response?.success === true) {
-    //     window.location.reload();
-    //   }
-    // }
-  };
+	//console.log(nurses)
+	const addInspections = async () => {
+		setLoader(true);
+		// if (Validate(car).empty()) {
+		//   const response = await addInspection(car);
+		//   if (response?.success === true) {
+		//     window.location.reload();
+		//   }
+		// }
+	};
+	useEffect(() => {
+		nurses.map((item: any) => {
+			// console.log(item)
+			// console.log(walletAddress)
 
-  return (
-    <div className="main__container">
-      <div className="section__card">
-        <div className="section__title">
-          <div>
-            <h1>Add Technincal Inspection</h1>
-            <p>Fill in the Form to Add New Technincal Inspection</p>
-          </div>
-        </div>
-        <div className="form">
-          <Select
-            text="Select Vehicle for Inspection"
-            Options={cars}
-            action={setCar}
-          />
-          <Warning text="Only Service Workers Owner can Add Inspection" />
-          <Loader status={loader} />
-          <Button
-            text="Add Technincal Inspection"
-            disabled={true ? !car : false}
-            action={addInspections}
-          />
-        </div>
-      </div>
-    </div>
-  );
+			if (item[1].toLowerCase() === walletAddress.toLowerCase()) {
+				setNurz(item);
+			}
+		});
+	}, [nurses]);
+
+	console.log(nurz);
+
+	return (
+		<div className="main__container">
+			{nurz.length !== 0 ? (
+				<div className="section__card">
+					<div className="section__title">
+						<div>
+							<h1>
+								Profile for <span style={{ fontSize: "16px" }}>{nurz[1]}</span>
+							</h1>
+							<p>Here is your hospital profile</p>
+						</div>
+					</div>
+					<div style={{ marginTop: "2rem" }}>
+						<h3>
+							Name: <span style={{ fontSize: "16px" }}>{nurz[2]}</span>
+						</h3>
+						<h3>
+							Specialization:{" "}
+							<span style={{ fontSize: "16px" }}>{nurz[4]}</span>
+						</h3>
+						<h3>
+							Rank: <span style={{ fontSize: "16px" }}>{nurz[3]}</span>
+						</h3>
+						<h3>
+							Date: <span style={{ fontSize: "16px" }}>{nurz[5]}</span>
+						</h3>
+					</div>
+					<div className="form"></div>
+				</div>
+			) : (
+				""
+			)}
+		</div>
+	);
 };
 
 export default TechnicalInspection;

@@ -19,6 +19,7 @@ import {
 	getAllNurses
 } from "./utils/Interact";
 import Login from "./pages/Auth/Login/Login";
+import UserProfile from "./pages/View/UserProfile";
 
 function App() {
 	const [walletAddress, setWallet] = useState("");
@@ -82,12 +83,13 @@ function App() {
 							<main>
 								<Routes>
 									<Route path="/dashboard" element={<Dashboard />} />
-									<Route path="/add-worker" element={<AddWorker />} />
-									<Route path="/add-car" element={<AddCar />} />
-									<Route path="/add-inspection" element={<AddInspection />} />
-									<Route path="/view-car" element={<ViewCar />} />
-									<Route path="/view-inspection" element={<ViewInspection />} />
-									<Route path="/car-details/:id" element={<CarDetails />} />
+									<Route path="/add-nurse" element={<AddWorker />} />
+									<Route path="/add-patient" element={<AddCar />} />
+									<Route path="/profile" element={<AddInspection />} />
+									<Route path="/view-nurse" element={<ViewCar />} />
+									<Route path="/view-patient" element={<ViewInspection />} />
+									<Route path="/car-details/:id" element={<CarDetails />} /> 
+									<Route path="/user-profile" element={<UserProfile />} /> 
 								</Routes>
 							</main>
 						</div>

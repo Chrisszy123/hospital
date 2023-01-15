@@ -203,7 +203,6 @@ export const addNurse = async (
 };
 
 export const addPatient = async (
-	pid: Number,
 	hid: Number,
 	addr: string,
 	name: string,
