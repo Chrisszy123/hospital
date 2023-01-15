@@ -150,7 +150,7 @@ function Sidebar() {
 		<div id="sidebar" className={isActive ? "sidebar_responsive" : ""}>
 			<div className="sidebar__title">
 				<div className="sidebar__img">
-					<img src="assets/logo.jpg" alt="logo" />
+					<img src="assets/hospital-logo.png" alt="logo" />
 				</div>
 				<FontAwesomeIcon icon="times" onClick={handleClick} />
 			</div>

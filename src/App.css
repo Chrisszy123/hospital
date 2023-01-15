@@ -432,7 +432,7 @@ main {
 /*  SIDEBAR STARTS HERE  */
 
 #sidebar {
-  background: #020509;
+  background: #2f20b4;
   height: 100vh;
   grid-area: sidebar;
   overflow-y: auto;
