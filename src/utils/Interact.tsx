@@ -129,26 +129,6 @@ export const getAllNurses = async () => {
 	}
 };
 
-// export const getAllInspection = async () => {
-//   if ((window as any).ethereum) {
-//     const status = await checkChainID();
-//     if (status === true) {
-//       try {
-//         const response = await contract.methods.getAllInspection().call();
-//         return {
-//           success: true,
-//           response,
-//         };
-//       } catch (error: any) {
-//         return {
-//           success: false,
-//           response: "😥 Something went wrong: " + error.message,
-//         };
-//       }
-//     }
-//   }
-// };
-
 export const getNursesCount = async () => {
 	if ((window as any).ethereum) {
 		const status = await checkChainID();
@@ -232,27 +212,6 @@ export const addPatient = async (
 		}
 	}
 };
-
-// export const addInspection = async (vin: string) => {
-//   if ((window as any).ethereum) {
-//     try {
-//       const accounts = await web3.eth.getAccounts();
-//       var today = new Date().toISOString().slice(0, 10);
-//       const response = await contract.methods.addInspection(vin, today).send({
-//         from: accounts[0],
-//       });
-//       return {
-//         success: true,
-//         response,
-//       };
-//     } catch (error: any) {
-//       return {
-//         success: false,
-//         response: "😥 Something went wrong: " + error.message,
-//       };
-//     }
-//   }
-// };
 
 export const getPatient = async (hid: Number) => {
 	if ((window as any).ethereum) {

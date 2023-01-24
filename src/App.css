@@ -440,7 +440,6 @@ main {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-
 .warning {
   font-size: 0.8rem;
   color: rgb(78, 78, 11);

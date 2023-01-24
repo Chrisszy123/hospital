@@ -2,8 +2,8 @@ import { useContext } from "react";
 import TBody from "../../components/Base/TBody";
 import { DataContext } from "../../context/DataContext";
 
-const Car = () => {
-	const { cars, nurses }: any = useContext(DataContext);
+const Nurse = () => {
+	const {  nurses }: any = useContext(DataContext);
 	return (
 		<div className="main__container">
 			<div className="section__card">
@@ -57,4 +57,4 @@ const Car = () => {
 	);
 };
 
-export default Car;
+export default Nurse;

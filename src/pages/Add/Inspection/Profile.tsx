@@ -8,28 +8,19 @@ import Validate from "../../../utils/Validate";
 import Warning from "../../../components/Base/Warning";
 import { WalletContext } from "../../../context/WalletContext";
 
-const TechnicalInspection = () => {
-	const [car, setCar] = useState("");
+const Profile = () => {
 	const [nurz, setNurz] = useState([]);
-	const { cars, nurses }: any = useContext(DataContext);
+	const { nurses }: any = useContext(DataContext);
 	const { walletAddress }: any = useContext(WalletContext);
 	const [loader, setLoader] = useState(false);
 
-	//console.log(nurses)
 	const addInspections = async () => {
 		setLoader(true);
-		// if (Validate(car).empty()) {
-		//   const response = await addInspection(car);
-		//   if (response?.success === true) {
-		//     window.location.reload();
-		//   }
-		// }
+		
 	};
+
 	useEffect(() => {
 		nurses.map((item: any) => {
-			// console.log(item)
-			// console.log(walletAddress)
-
 			if (item[1].toLowerCase() === walletAddress.toLowerCase()) {
 				setNurz(item);
 			}
@@ -74,4 +65,4 @@ const TechnicalInspection = () => {
 	);
 };
 
-export default TechnicalInspection;
+export default Profile;

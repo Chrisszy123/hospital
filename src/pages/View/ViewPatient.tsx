@@ -2,8 +2,8 @@ import { useContext } from "react";
 import TBody from "../../components/Base/TBody";
 import { DataContext } from "../../context/DataContext";
 
-const TechnicalInspection = () => {
-	const { inspections, patient }: any = useContext(DataContext);
+const ViewPatient = () => {
+	const { patient }: any = useContext(DataContext);
 	console.log(patient);
 	return (
 		<div className="main__container">
@@ -56,4 +56,4 @@ const TechnicalInspection = () => {
 	);
 };
 
-export default TechnicalInspection;
+export default ViewPatient;

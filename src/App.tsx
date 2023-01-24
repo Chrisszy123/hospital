@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import AddWorker from "./pages/Add/ServiceWorker/ServiceWorker";
-import AddCar from "./pages/Add/Car/Car";
-import AddInspection from "./pages/Add/Inspection/TechnicalInspection";
-import ViewCar from "./pages/View/Car";
-import ViewInspection from "./pages/View/TechnicalInspection";
+import AddPatient from "./pages/Add/Car/AddPatient";
+import Profile from "./pages/Add/Inspection/Profile";
+import ViewNurse from "./pages/View/Nurse";
+import ViewPatient from "./pages/View/ViewPatient";
 import CarDetails from "./pages/View/CarDetails";
 import Nav from "./components/Nav/Nav";
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -16,7 +16,7 @@ import {
 	getAllPatients,
 	// getAllInspection,
 	getNursesCount,
-	getAllNurses
+	getAllNurses,
 } from "./utils/Interact";
 import Login from "./pages/Auth/Login/Login";
 import UserProfile from "./pages/View/UserProfile";
@@ -48,15 +48,15 @@ function App() {
 			setWorkersLength(result?.response);
 		};
 		const Nurses = async () => {
-			const result = await getAllNurses()
-			setNurses(result?.response)
-		}
+			const result = await getAllNurses();
+			setNurses(result?.response);
+		};
 
 		if (walletAddress !== "") {
 			AllPatients();
 			// AllInspection();
 			NursesCount();
-			Nurses()
+			Nurses();
 		}
 	}, [walletAddress]);
 
@@ -71,7 +71,7 @@ function App() {
 					inspections,
 					inspectionsLength,
 					workersLength,
-					nurses
+					nurses,
 				}}
 			>
 				{location.pathname !== "/" ? (
@@ -84,12 +84,11 @@ function App() {
 								<Routes>
 									<Route path="/dashboard" element={<Dashboard />} />
 									<Route path="/add-nurse" element={<AddWorker />} />
-									<Route path="/add-patient" element={<AddCar />} />
-									<Route path="/profile" element={<AddInspection />} />
-									<Route path="/view-nurse" element={<ViewCar />} />
-									<Route path="/view-patient" element={<ViewInspection />} />
-									<Route path="/car-details/:id" element={<CarDetails />} /> 
-									<Route path="/user-profile" element={<UserProfile />} /> 
+									<Route path="/add-patient" element={<AddPatient />} />
+									<Route path="/profile" element={<Profile />} />
+									<Route path="/view-nurse" element={<ViewNurse />} />
+									<Route path="/view-patient" element={<ViewPatient />} />
+									<Route path="/user-profile" element={<UserProfile />} />
 								</Routes>
 							</main>
 						</div>

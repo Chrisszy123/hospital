@@ -6,7 +6,7 @@ import Validate from "../../../utils/Validate";
 import { addPatient } from "../../../utils/Interact";
 import Warning from "../../../components/Base/Warning";
 
-const Car = () => {
+const AddPatient = () => {
 	const [name, setName] = useState("");
 	const [addr, setAddress] = useState("");
 	const [hid, setHid] = useState(0);
@@ -17,7 +17,7 @@ const Car = () => {
 	const [prescription, setPrescription] = useState("");
 	const [loader, setLoader] = useState(false);
 
-	const addCar = async () => {
+	const addPatients = async () => {
 		setLoader(true);
 		try {
 			if (Validate(name).empty() && Validate(history).empty()) {
@@ -37,11 +37,6 @@ const Car = () => {
 		} catch (err) {
 			console.log(err);
 		}
-	};
-
-	const generateVIN = () => {
-		const random = Math.round(Math.random() * (1001 - 100000) + 100000);
-		return random;
 	};
 
 	return (
@@ -79,11 +74,7 @@ const Car = () => {
 						type="number"
 						action={setAge}
 					/>
-					{/* <Input
-            placeholder="Enter Patient History"
-            type="text"
-            action={setColor}
-          /> */}
+
 					<textarea
 						onChange={(e) => setHistory(e.target.value)}
 						placeholder="Enter Patient History"
@@ -118,7 +109,7 @@ const Car = () => {
 						disabled={
 							true ? !name || !age || !history || !prescription || !date : false
 						}
-						action={addCar}
+						action={addPatients}
 					/>
 				</div>
 			</div>
@@ -126,4 +117,4 @@ const Car = () => {
 	);
 };
 
-export default Car;
+export default AddPatient;
